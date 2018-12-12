@@ -1,9 +1,9 @@
 pw = ''
-create_db = "DROP DATABASE IF EXISTS trees_db; CREATE DATABASE trees_db;"
+create_db = "DROP DATABASE IF EXISTS tree_db; CREATE DATABASE tree_db;"
             
 create_tbl = """
-            USE trees_db;
-            CREATE TABLE nyc_trees(
+            USE tree_db;
+            CREATE TABLE nyc_tree(
                 ID INT AUTO_INCREMENT PRIMARY KEY,
                 zip_code INT,
                 species_nm VARCHAR(255),
