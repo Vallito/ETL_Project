@@ -2,8 +2,9 @@
 
 ## Data Sources
 Two primary sources of data were used:
-    * Kaggle: https://www.kaggle.com/new-york-city/ny-2015-street-tree-census-tree-data
-    * Webscrape: http://leafsnap.com/
+<br>
+* Kaggle: https://www.kaggle.com/new-york-city/ny-2015-street-tree-census-tree-data
+* Webscrape: http://leafsnap.com/
 
 ## Transformations Needed:
 The kaggle tree data was used to create two MySQL tables. The first table is an aggreate of tree species by zipcode. This includes the count of trees by species, and an average diameter of the species. 
