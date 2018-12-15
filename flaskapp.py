@@ -4,9 +4,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 import pymysql
-from flask import Flask, jsonify
-from sqlalchemy.pool import StaticPool
-import logging
+from flask import Flask, jsonify, render_template
 
 # Connect to database
 
@@ -32,6 +30,7 @@ app = Flask(__name__)
 @app.route("/")
 def main():
     data = session.query(tree_table).all()
+   
 
     # Convert list of tuples into normal list
     all_trees = []
@@ -42,8 +41,12 @@ def main():
         tree_dict['count_tree'] = tree_type.count_tree
         tree_dict['avg_diameter'] = tree_type.avg_diameter
         all_trees.append(tree_dict)
-
     return jsonify(all_trees)
+
+@app.route("/web")
+def site():
+    main_table = list(session.query(tree_table).all())
+    return render_template("index.html", tree = main_table)
 
 if __name__ == '__main__':
     app.run(debug=True)
