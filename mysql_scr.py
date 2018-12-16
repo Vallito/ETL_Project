@@ -5,7 +5,7 @@ create_tbl = """
             USE tree_db;
             CREATE TABLE nyc_tree(
                 ID INT AUTO_INCREMENT PRIMARY KEY,
-                zip_code INT,
+                borough  VARCHAR(255),
                 species_nm VARCHAR(255),
                 count_tree INT,
                 avg_diameter INT

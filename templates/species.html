@@ -7,27 +7,26 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>NY City Trees!</title>
+    <title>Species Information</title>
   </head>
   <body>
-  <div class="card-deck">
- {% for borough in boroughs%}
+ {% for tree in trees%}
+
   <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src='{{borough.img}}' alt="Card image cap">
+    <img class="card-img-top" src='{{tree.img_loc}}' alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">{{borough.borough}}</h5>
-      <p class="card-text">There were a total of {{borough.total_trees}} trees planted in {{borough.borough}}, with {{borough.species_count}} different species planted.</p>
+      <h5 class="card-title">{{tree.species_nm}}</h5>
+      <p class="card-text">The {{tree.species_nm}} enjoys {{tree.habitat}}.</p>
     </div>
-    {% for tree in borough.trees%}
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><a href="/{{tree}}">{{tree}}</a></li>
+      <li class="list-group-item">Growth Habit: {{tree.growth_habit}}</li>
+      <li class="list-group-item">Longevity: {{tree.longevity}}</li>
+      <li class="list-group-item">Bloom Time: {{tree.bloom_time}}</small></li>
     </ul>
-    {% endfor %}
     <div class="card-body">
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+      <a href="/" class="card-link"><small>Return to Boroughs</small></a>
     </div>
-  </div>
+
 
   {% endfor %}
 
